@@ -1,0 +1,29 @@
+<html>
+    <head>
+    <script>
+
+        function updateTimer() {
+            const now = new Date();
+            console.log(`Current time: ${now.toLocaleTimeString()}`);
+
+            var latitute = 0.
+            var longitude = 0.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        latitute = position.coords.latitude;
+                        longitude = position.coords.longitude;
+                        console.log(latitute + ", " + longitude);
+                    }
+                );
+            }    
+        }
+
+        const timerId = setInterval(updateTimer, 10000);
+
+    </script>
+    </head>
+    <body>    
+        <div class="myDiv">check console for GPS location</div>
+    </body>
+</html>
